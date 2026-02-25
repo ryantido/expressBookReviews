@@ -1,0 +1,2 @@
+curl -X PUT -b cookies.txt "http://localhost:5000/customer/auth/review/1?review=hello" > reviewadded
+L'avis de l'utilisateur Ryan pour l'ISBN 1 a été ajouté à jour.

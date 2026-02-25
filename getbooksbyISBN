@@ -1,1 +1,2 @@
+curl -X GET http://localhost:5000/customer/books/1 > getbooksbyISBN
 {"book":{"author":"Chinua Achebe","title":"Things Fall Apart","reviews":{}}}
