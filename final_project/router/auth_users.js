@@ -42,8 +42,6 @@ regd_users.post("/login", (req, res) => {
   }
 });
 
-// Add a book review
-// Tâche 9 : Ajouter ou modifier un avis sur un livre
 regd_users.put("/auth/review/:isbn", (req, res) => {
   const isbn = req.params.isbn;
   const review = req.query.review;
@@ -52,7 +50,6 @@ regd_users.put("/auth/review/:isbn", (req, res) => {
 
   if (book) {
     if (review) {
-      // On utilise le username comme clé pour que chaque utilisateur n'ait qu'UN seul avis par livre
       book.reviews[username] = review;
       return res.status(200).send(`L'avis de l'utilisateur ${username} pour l'ISBN ${isbn} a été ajouté/mis à jour.`);
     } else {
@@ -63,7 +60,6 @@ regd_users.put("/auth/review/:isbn", (req, res) => {
   }
 });
 
-// Tâche 10 : Supprimer l'avis d'un livre
 regd_users.delete("/auth/review/:isbn", (req, res) => {
   const isbn = req.params.isbn;
   const username = req.session.authorization['username'];
@@ -73,7 +69,6 @@ regd_users.delete("/auth/review/:isbn", (req, res) => {
     return res.status(404).json({ message: "Livre non trouvé." });
   }
 
-  // Vérifier si l'utilisateur a un avis sur ce livre
   if (book.reviews[username]) {
     delete book.reviews[username];
     return res.status(204).send(`L'avis de l'utilisateur ${username} pour l'ISBN ${isbn} a été supprimé.`);
