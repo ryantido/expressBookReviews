@@ -1,2 +1,3 @@
-curl -X GET "http://localhost:5000/title/Pride%20and%20Prejudice" > getbooksbytitle
+curl http://localhost:5000/title/Pride%20and%20Prejudice > getbooksbytitle
+
 [{"isbn":"8","author":"Jane Austen","title":"Pride and Prejudice","reviews":{}}]
